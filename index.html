@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akbar Ramadhan | Portofolio</title>
+    <style>
+        /* Reset dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212; 
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        header {
+            height: 100vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #121212, #1a1a1a); 
+            padding: 2rem;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            /* margin-bottom: 0rem;*/
+            color: #00d4ff; 
+        }
+header p{
+    margin-top:1rem;
+    font-size:1.2rem;
+    display:inline-block;
+    white-space:nowrap;
+    overflow:hidden;
+    border-right:2px solid #00d4ff;
+    width:0;
+    animation:typing 6s steps(32,end) infinite,
+             blink 0.7s infinite;
+}
+
+/* FIXED TYPING */
+@keyframes typing{
+    0%{width:0}
+    40%{width:45ch}
+    80%{width:45ch}
+    100%{width:0}
+}
+
+@keyframes blink{
+    50%{border-color:transparent}
+}
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(18, 18, 18, 0.95);
+    padding: 0.8rem 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;          /* ⬅️ bisa geser ke samping */
+    white-space: nowrap;       /* ⬅️ cegah turun ke bawah */
+}
+
+nav::-webkit-scrollbar {
+    display: none;             /* ⬅️ hilangkan scrollbar */
+}
+
+nav a {
+    color: #ffffff;
+    margin: 0 0.8rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    flex-shrink: 0;            /* ⬅️ jangan mengecil */
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #00d4ff;
+}
+
+        section {
+            padding: 4rem 10%;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        section:nth-child(1) { animation-delay: 0.2s; }
+        section:nth-child(2) { animation-delay: 0.4s; }
+        section:nth-child(3) { animation-delay: 0.6s; }
+        section:nth-child(4) { animation-delay: 0.8s; }
+        section:nth-child(5) { animation-delay: 1.0s; }
+        section:nth-child(6) { animation-delay: 1.2s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: #00d4ff;
+            border-bottom: 2px solid #00d4ff;
+            padding-bottom: 0.5rem;
+        }
+
+        #about p {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .contact-info div {
+            flex: 1 1 200px;
+            background: #1e1e1e; 
+            padding: 1rem;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .contact-info div:hover {
+            transform: translateY(-5px);
+        }
+
+        .education, .experience, .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .item {
+            background: #1e1e1e;
+            padding: 1.5rem;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .item:hover {
+            transform: translateY(-10px);
+        }
+
+        .item h3 {
+            color: #00d4ff;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .projects img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .projects img:hover {
+            transform: scale(1.05);
+        }
+
+        .skills ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skills li {
+            background: #1e1e1e;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .skills li:hover {
+            transform: translateY(-5px);
+        }
+
+        #contact p {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        footer {
+            background: #1a1a1a;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            nav a {
+                margin: 0 0.5rem;
+            }
+            .contact-info, .education, .experience, .projects, .skills {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#about">Tentang</a>
+        <a href="#education">Pendidikan</a>
+        <a href="#experience">Pengalaman</a>
+        <a href="#projects">Proyek</a>
+        <a href="#skills">Keahlian</a>
+        <a href="#contact">Kontak</a>
+    </nav>
+
+    <header>
+        <h1>Akbar Ramadhan</h1>
+        <p>Pelajar di SMK MULTI KARYA | Designer & Programmer</p>
+    </header>
+    <div class="container">
+    <section id="about">
+        <h2>Tentang Saya</h2>
+        <p>Saya adalah seorang pelajar di SMK MULTI KARYA yang tertarik dengan dunia teknologi, khususnya desain dan pemrograman. Saya suka belajar hal baru dan mengembangkan proyek kreatif.</p>
+        <div class="contact-info">
+            <div>
+                <strong>Email:</strong> akbar60305@gmail.com
+            </div>
+            <div>
+                <strong>Telepon:</strong> 085217161933
+            </div>
+            <div>
+                <strong>Alamat:</strong> Jln.cerut,gg.Darma ,Link VI, Medan Marelan, Indonesia
+            </div>
+            <div>
+                <strong>LinkedIn:</strong> <a href="akbar60305@gmail.com" style="color: #00d4ff;">Profil LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Pendidikan</h2>
+        <div class="education">
+            <div class="item">
+                <h3>SMK MULTI KARYA MEDAN</h3>
+                <p><strong>Jurusan:</strong> RPL(Rekayasa Perangkat Lunak)</p>
+                <p><strong>Tahun:</strong> 2024 - Sekarang</p>
+                <p>Saya belajar pengembangan perangkat lunak, pemrograman, dan pembuatan website sebagai dasar untuk menjadi programmer dan web developer.</p>
+            </div>
+            <div class="item">
+                <h3>PONPES Darul Adib</h3>
+                <p><strong>Jurusan:</strong> Pendidikan Menengah</p>
+                <p><strong>Tahun:</strong> 2020 - 2023</p>
+                <p>Pendidikan menengah saya di pondok pesantren ini membantu membentuk karakter dan disiplin saya.</p>
+            </div>
+            <div class="item">
+                <h3>SDN 060829</h3>
+                <p><strong>Jurusan:</strong> Pendidikan Dasar</p>
+                <p><strong>Tahun:</strong> 2014 - 2020</p>
+                <p>Pendidikan dasar saya di sekolah ini menjadi fondasi awal untuk belajar dan berkembang.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Pengalaman Kerja</h2>
+        <div class="experience">
+            <div class="item">
+                <h3>PKL(Praktek Kerja Lapangan)</h3>
+                <p><strong>Perusahaan:</strong> Miloqu</p>
+                <p><strong>Periode:</strong> 13-10-2025 s/d 10-01-2026</p>
+                <p>Melaksanakan Praktek Kerja Lapangan dengan membantu pengembangan website, 
+    Membuat Artikel,Mencari ide content Instagram & Membuat content Instagram slide, Mencari pelanggan dari berbagai daerah menggunakan
+    google maps & membuat template design serta mempelajari alur kerja tim dan penerapan teknologi web 
+    dalam lingkungan kerja profesional.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Proyek yang Telah Dikerjakan</h2>
+        <div class="projects">
+            <h3>Affinity</h3>
+            <img src="Screenshot (22).png" alt="">
+            <img src="Screenshot (35).png" alt="">
+            <img src="Screenshot (88).png" alt="">
+            <img src="Screenshot (105).png" alt="">
+            <h3>VS Code</h3>
+            <img src="Screenshot (109).png" alt="">
+            <img src="Screenshot (112).png" alt="">
+            <img src="Screenshot (113).png" alt="">
+            <h3>Figma</h3>
+            <img src="Screenshot (116).png" alt="">
+            <img src="Screenshot (117).png" alt="">
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Keahlian</h2>
+        <div class="skills">
+            <ul>
+                <li><strong>Designer-Programer:</strong> Saya memiliki keterampilan dalam desain dan pemrograman.</li>
+                <li><strong>Bahasa Pemrograman:</strong> HTML, CSS, Dart, Python, PHP</li>
+                <li><strong>Tools:</strong> Affinity, VS Code, Figma</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Kontak</h2>
+        <p>Jika Anda ingin menghubungi saya, silakan gunakan informasi di bawah ini:</p>
+        <div class="contact-info">
+            <div>
+                <strong>Email:</strong> akbar60305@gmail.com
+            </div>
+            <div>
+                <strong>Telepon:</strong> 085217161933
+            </div>
+            <div>
+                <strong>Alamat:</strong> Jln.cerut,gg.Darma ,Link VI, Medan Marelan, Indonesia
+            </div>
+            <div>
+                <strong>LinkedIn:</strong> <a href="akbar60305@gmail.com" style="color: #00d4ff;">Profil LinkedIn</a>
+            </div>
+        </div>
+    </section>
+    </div>
+    <footer>
+        <p>&copy; 2025 Akbar Ramadhan. Semua hak dilindungi.</p>
+    </footer>
+</body>
+</html>
