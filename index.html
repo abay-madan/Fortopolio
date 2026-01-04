@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portofolio profesional - Pelajar RPL & Web Developer">
+    <title>Akbar Ramadhan | Portofolio - Web Developer & Designer</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #00d4ff;
+            --secondary-color: #00a8cc;
+            --accent-color: #764ba2;
+            --text-dark: #ffffff;
+            --text-light: #b0b0b0;
+            --bg-dark: #121212;
+            --bg-card: #1e1e1e;
+            --bg-section: #1a1a1a;
+            --spacing-unit: 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-top: 0;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        p {
+            color: var(--text-light);
+        }
+        
+        /* Navbar */
+        .navbar {
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            padding: calc(var(--spacing-unit) * 2) 0;
+        }
+        
+        .navbar.scrolled {
+            padding: var(--spacing-unit) 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+        
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color) !important;
+        }
+        
+        .nav-link {
+            color: var(--text-light) !important;
+            font-weight: 500;
+            padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2) !important;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--primary-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 80%;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color) !important;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
+            color: white;
+            padding: calc(var(--spacing-unit) * 10) 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(0,212,255,0.1)"/></svg>');
+            animation: float 20s linear infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100px); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: calc(var(--spacing-unit) * 3);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: calc(var(--spacing-unit) * 4);
+            opacity: 0.9;
+        }
+        
+        .hero-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid rgba(0,212,255,0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        
+        .btn-primary-custom {
+            background: var(--primary-color);
+            color: #121212;
+            padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 4);
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-color);
+            min-width: 160px;
+            text-align: center;
+        }
+        
+        .btn-primary-custom:hover {
+            background: transparent;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,212,255,0.3);
+        }
+        
+        .btn-secondary-custom {
+            background: transparent;
+            color: var(--primary-color);
+            padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 4);
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-color);
+            min-width: 160px;
+            text-align: center;
+        }
+        
+        .btn-secondary-custom:hover {
+            background: var(--primary-color);
+            color: #121212;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,212,255,0.3);
+        }
+        
+        /* Section Styling */
+        section {
+            padding: calc(var(--spacing-unit) * 10) 0;
+        }
+        
+        section:nth-child(even) {
+            background: var(--bg-section);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            text-align: center;
+            position: relative;
+            padding-bottom: calc(var(--spacing-unit) * 2);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: calc(var(--spacing-unit) * 6);
+            font-size: 1.1rem;
+        }
+        
+        /* About Section */
+        .about-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .fun-facts {
+            background: var(--bg-card);
+            padding: calc(var(--spacing-unit) * 4);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .fun-fact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: calc(var(--spacing-unit) * 2);
+        }
+        
+        .fun-fact-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: calc(var(--spacing-unit) * 2);
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: calc(var(--spacing-unit) * 4) 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--primary-color);
+        }
+        
+        .timeline-item {
+            margin-bottom: calc(var(--spacing-unit) * 6);
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+        
+        .timeline-content {
+            width: calc(50% - 40px);
+            background: var(--bg-card);
+            padding: calc(var(--spacing-unit) * 4);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            position: relative;
+            transition: transform 0.3s;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-10px);
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::before {
+            right: -20px;
+            border-width: 10px 0 10px 20px;
+            border-color: transparent transparent transparent var(--bg-card);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            left: -20px;
+            border-width: 10px 20px 10px 0;
+            border-color: transparent var(--bg-card) transparent transparent;
+        }
+        
+        .timeline-icon {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #121212;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,212,255,0.4);
+            z-index: 1;
+        }
+        
+        .timeline-date {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: calc(var(--spacing-unit) * 1);
+        }
+        
+        .timeline-title {
+            font-size: 1.3rem;
+            margin-bottom: calc(var(--spacing-unit) * 1);
+        }
+        
+        .timeline-subtitle {
+            color: var(--text-light);
+            margin-bottom: calc(var(--spacing-unit) * 2);
+        }
+        
+        /* Project Cards */
+        .project-filters {
+            text-align: center;
+            margin-bottom: calc(var(--spacing-unit) * 6);
+        }
+        
+        .filter-btn {
+            background: var(--bg-card);
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
+            margin: calc(var(--spacing-unit) * 1);
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: #121212;
+        }
+        
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            margin-bottom: calc(var(--spacing-unit) * 4);
+            height: 100%;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+        
+        .project-content {
+            padding: calc(var(--spacing-unit) * 3);
+        }
+        
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: calc(var(--spacing-unit) * 1);
+        }
+        
+        .project-category {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: calc(var(--spacing-unit) * 2);
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: calc(var(--spacing-unit) * 1);
+            margin-top: calc(var(--spacing-unit) * 2);
+        }
+        
+        .tech-tag {
+            background: rgba(0,212,255,0.1);
+            color: var(--primary-color);
+            padding: calc(var(--spacing-unit) * 0.5) calc(var(--spacing-unit) * 2);
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: calc(var(--spacing-unit) * 2);
+            margin-top: calc(var(--spacing-unit) * 3);
+        }
+        
+        .project-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: calc(var(--spacing-unit) * 1);
+            transition: all 0.3s ease;
+        }
+        
+        .project-link:hover {
+            color: var(--secondary-color);
+            gap: calc(var(--spacing-unit) * 1.5);
+        }
+        
+        /* Skills */
+        .skill-category {
+            background: var(--bg-card);
+            padding: calc(var(--spacing-unit) * 4);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            margin-bottom: calc(var(--spacing-unit) * 4);
+            transition: transform 0.3s;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-category-title {
+            font-size: 1.5rem;
+            margin-bottom: calc(var(--spacing-unit) * 3);
+            display: flex;
+            align-items: center;
+            gap: calc(var(--spacing-unit) * 2);
+        }
+        
+        .skill-category-title i {
+            color: var(--primary-color);
+        }
+        
+        .skill-item {
+            margin-bottom: calc(var(--spacing-unit) * 3);
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: calc(var(--spacing-unit) * 1);
+            font-weight: 600;
+        }
+        
+        /* Contact Form */
+        .contact-info {
+            background: var(--bg-card);
+            padding: calc(var(--spacing-unit) * 4);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            height: 100%;
+            transition: transform 0.3s;
+        }
+        
+        .contact-info:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: calc(var(--spacing-unit) * 3);
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: #121212;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: calc(var(--spacing-unit) * 2);
+            font-size: 1.3rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: calc(var(--spacing-unit) * 2);
+            margin-top: calc(var(--spacing-unit) * 4);
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: #121212;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,212,255,0.3);
+        }
+        
+        .contact-form {
+            background: var(--bg-card);
+            padding: calc(var(--spacing-unit) * 4);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+        
+        .contact-form:hover {
+            transform: translateY(-5px);
+        }
+        
+        .form-control {
+            padding: calc(var(--spacing-unit) * 2);
+            border: 2px solid #333;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background: #2a2a2a;
+            color: var(--text-dark);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(0,212,255,0.1);
+            background: #333;
+        }
+        
+        .btn-submit {
+            background: var(--primary-color);
+            color: #121212;
+            padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 6);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .btn-submit:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,212,255,0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            color: var(--text-light);
+            padding: calc(var(--spacing-unit) * 6) 0 calc(var(--spacing-unit) * 3) 0;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: calc(var(--spacing-unit) * 4);
+            margin-bottom: calc(var(--spacing-unit) * 3);
+            flex-wrap: wrap;
+        }
+        
+        .footer-link {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: #121212;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,212,255,0.4);
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Typing Animation */
+        .typing-animation {
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid var(--primary-color);
+            width: 0;
+            animation: typing 6s steps(32,end) infinite,
+                     blink 0.7s infinite;
+        }
+        
+        @keyframes typing {
+            0% { width: 0; }
+            40% { width: 45ch; }
+            80% { width: 45ch; }
+            100% { width: 0; }
+        }
+        
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 991px) {
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 80px);
+                margin-left: 80px !important;
+            }
+            
+            .timeline-icon {
+                left: 30px;
+            }
+            
+            .timeline-content::before {
+                left: -20px !important;
+                border-width: 10px 20px 10px 0 !important;
+                border-color: transparent var(--bg-card) transparent transparent !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero-image {
+                width: 200px;
+                height: 200px;
+                margin-bottom: calc(var(--spacing-unit) * 4);
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .btn-primary-custom,
+            .btn-secondary-custom {
+                width: 100%;
+                margin-bottom: calc(var(--spacing-unit) * 2);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            section {
+                padding: calc(var(--spacing-unit) * 6) 0;
+            }
+            
+            .hero-section {
+                padding: calc(var(--spacing-unit) * 6) 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">AR.</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education">Pendidikan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Pengalaman</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Project</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Keahlian</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section / About -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Halo, saya Akbar Ramadhan</h1>
+                        <p class="hero-subtitle typing-animation">Pelajar di SMK MULTI KARYA | Designer & Programmer</p>
+                        <p class="mb-4">Saya adalah siswa SMK yang bersemangat dalam dunia teknologi, khususnya pengembangan web dan desain. Saya percaya bahwa dengan kombinasi kreativitas dan logika pemrograman, kita dapat menciptakan solusi digital yang inovatif dan bermanfaat.</p>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <a href="#projects" class="btn-primary-custom">Lihat Project</a>
+                            <a href="#contact" class="btn-secondary-custom">Hubungi Saya</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center" data-aos="fade-left">
+                    <img src="PP.jpeg" alt="Akbar Ramadhan" class="hero-image">
+                </div>
+            </div>
+            
+            <div class="row mt-5" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-8 mx-auto">
+                    <div class="about-content">
+                        <p>Saat ini saya sedang menempuh pendidikan di SMK MULTI KARYA Medan dengan jurusan Rekayasa Perangkat Lunak (RPL). Sejak awal mengenal dunia pemrograman, saya telah mengembangkan minat yang mendalam terhadap pengembangan web, khususnya di bidang front-end development dan UI/UX design.</p>
+                        
+                        <p>Dalam perjalanan belajar saya, saya telah menguasai berbagai teknologi dasar seperti HTML, CSS, PHP, dan Python. Saya juga aktif mengikuti perkembangan teknologi terbaru dan selalu mencari peluang untuk mengasah kemampuan melalui proyek-proyek praktikal.</p>
+                        
+                        <p>Selain kemampuan teknis, saya juga mengembangkan soft skills seperti komunikasi, kerja tim, dan problem-solving melalui berbagai kegiatan sekolah dan pengalaman magang. Saya yakin bahwa kombinasi antara kemampuan teknis dan soft skills yang baik sangat penting untuk kesuksesan di industri teknologi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Pendidikan</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Perjalanan pendidikan formal dan non-formal</p>
+            
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-icon">
+                        <i class="bi bi-mortarboard-fill"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024 - Sekarang</div>
+                        <h4 class="timeline-title">SMK MULTI KARYA MEDAN</h4>
+                        <p class="timeline-subtitle">Jurusan Rekayasa Perangkat Lunak (RPL)</p>
+                        <p><strong>Fokus Pembelajaran:</strong></p>
+                        <ul>
+                            <li>Pemrograman Dasar (HTML, CSS, PHP, PYTHON, DART)</li>
+                            <li>Basis Data dan SQL</li>
+                            <li>Pengembangan Web dan Mobile</li>
+                            <li>UI/UX Design</li>
+                            <li>Algoritma dan Struktur Data</li>
+                        </ul>
+                        <p><strong>Kegiatan Ekstrakurikuler:</strong></li>
+                            <li>Anggota Klub IT Sekolah</li>
+                            <li>Peserta Workshop Web Development</li>
+                            <li>Peserta Lomba Coding Tingkat Sekolah</li>
+                        </ul>
+                        <div class="tech-stack mt-3">
+                            <span class="tech-tag">HTML/CSS</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">Python</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-icon">
+                        <i class="bi bi-house-door-fill"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2020 - 2023</div>
+                        <h4 class="timeline-title">Pondok Pesantren Darul Adib</h4>
+                        <p class="timeline-subtitle">Pendidikan Agama dan Umum</p>
+                        <p><strong>Pencapaian:</strong></p>
+                        <ul>
+                            <li>Pemahaman dasar nilai-nilai etika dan moral</li>
+                            <li>Pengembangan karakter dan disiplin diri</li>
+                            <li>Kemampuan mengelola waktu secara efektif</li>
+                            <li>Pengalaman hidup berasrama dan kerja sama tim</li>
+                        </ul>
+                        <p><strong>Keterampilan yang dikembangkan:</strong> Disiplin, tanggung jawab, kemandirian, dan kemampuan beradaptasi dalam lingkungan yang beragam.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-icon">
+                        <i class="bi bi-laptop-fill"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023 - Sekarang</div>
+                        <h4 class="timeline-title">Belajar Mandiri & Online Course</h4>
+                        <p class="timeline-subtitle">Pengembangan Skill Teknis</p>
+                        <p><strong>Platform yang digunakan:</strong> YouTube dan Dokumentasi Resmi</p>
+                        <p><strong>Materi yang dipelajari:</strong></p>
+                        <ul>
+                            <li>Responsive Web Design</li>
+                            <li>Version Control dengan Git</li>
+                            <li>Basic Backend Development dengan PHP</li>
+                            <li>UI/UX Design Principles</li>
+                        </ul>
+                        <div class="tech-stack mt-3">
+                            <span class="tech-tag">Git</span>
+                            <span class="tech-tag">Responsive Design</span>
+                            <span class="tech-tag">UI/UX</span>
+                            <span class="tech-tag">Web Development</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Pengalaman</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Pengalaman praktikal dan magang</p>
+            
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-icon">
+                        <i class="bi bi-briefcase-fill"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024</div>
+                        <h4 class="timeline-title">Magang (PKL) - Miloqu Digital Agency</h4>
+                        <p class="timeline-subtitle">Web Development Intern • Medan</p>
+                        
+                        <p><strong>Tanggung Jawab:</strong></p>
+                        <ul>
+                            <li>Membantu dalam pengembangan dan maintenance website client</li>
+                            <li>Membuat konten visual untuk media sosial Instagram</li>
+                            <li>Mendesain mockup dan prototype untuk proyek web</li>
+                            <li>Berpartisipasi dalam brainstorming session dengan tim kreatif</li>
+                            <li>Mempelajari workflow profesional dalam agensi digital</li>
+                        </ul>
+                        
+                        <p><strong>Pencapaian:</strong></p>
+                        <ul>
+                            <li>Meningkatkan engagement Instagram client sebesar 25%</li>
+                            <li>Menerima feedback positif dari supervisor mengenai etos kerja</li>
+                            <li>Mempelajari penggunaan tools profesional seperti Figma dan VS Code</li>
+                        </ul>
+                        
+                        <p><strong>Keterampilan yang dikembangkan:</strong></p>
+                        <ul>
+                            <li>Workflow profesional dalam pengembangan web</li>
+                            <li>Kolaborasi tim dalam lingkungan kerja</li>
+                            <li>Manajemen waktu dan prioritas tugas</li>
+                            <li>Komunikasi efektif dengan klien dan rekan kerja</li>
+                        </ul>
+                        
+                        <div class="tech-stack mt-3">
+                            <span class="tech-tag">HTML/CSS</span>
+                            <span class="tech-tag">Figma</span>
+                            <span class="tech-tag">Canva</span>
+                            <span class="tech-tag">WordPress</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-icon">
+                        <i class="bi bi-kanban-fill"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023 - Sekarang</div>
+                        <h4 class="timeline-title">Proyek Sekolah & Personal</h4>
+                        <p class="timeline-subtitle">Freelance & Self-Learning Projects</p>
+                        
+                        <p><strong>Jenis Proyek:</strong></p>
+                        <ul>
+                            <li>Website portfolio untuk teman sekelas</li>
+                            <li>Landing page untuk usaha kecil</li>
+                            <li>Aplikasi web sederhana untuk tugas sekolah</li>
+                            <li>Redesign UI website existing</li>
+                            <li>Prototype aplikasi mobile untuk pembelajaran</li>
+                        </ul>
+                        
+                        <p><strong>Pencapaian:</strong></p>
+                        <ul>
+                            <li>Menyelesaikan 5+ proyek web sederhana</li>
+                            <li>Mengembangkan kemampuan problem-solving secara mandiri</li>
+                            <li>Belajar mengelola proyek dari awal hingga selesai</li>
+                            <li>Menerima feedback konstruktif dari pengguna</li>
+                        </ul>
+                        
+                        <div class="tech-stack mt-3">
+                            <span class="tech-tag">Bootstrap</span>
+                            <span class="tech-tag">CSS Grid</span>
+                            <span class="tech-tag">Flexbox</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Project Portfolio</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Proyek-proyek yang telah saya kerjakan selama belajar</p>
+            
+            <div class="row" id="project-container">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <div class="project-card">
+                        <img src="SS-1.jpeg" alt="Affinity Design Project" class="project-image">
+                        <div class="project-content">
+                            <div class="project-category">Graphic Design</div>
+                            <h4 class="project-title">Brand Identity Package dengan Affinity</h4>
+                            <p>Mendesain paket identitas brand lengkap termasuk logo, warna, tipografi, dan elemen visual menggunakan Affinity Designer dan Affinity Photo.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Affinity Designer</span>
+                                <span class="tech-tag">Affinity Photo</span>
+                                <span class="tech-tag">Vector Design</span>
+                                <span class="tech-tag">Brand Identity</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="bi bi-box-arrow-up-right"></i> View Portfolio
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="bi bi-download"></i> Download Assets
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card">
+                        <img src="SS-2.jpeg" alt="VS Code Project" class="project-image">
+                        <div class="project-content">
+                            <div class="project-category">Web Development</div>
+                            <h4 class="project-title">Custom VS Code Theme & Extensions</h4>
+                            <p>Mengembangkan tema kustom untuk Visual Studio Code dan membuat extension sederhana untuk meningkatkan produktivitas coding.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">VS Code</span>
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">DART</span>
+                                <span class="tech-tag">PYTHON</span>
+                                <span class="tech-tag">PHP</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="bi bi-box-arrow-up-right"></i> Try Theme
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="bi bi-github"></i> Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <img src="SS-3.jpeg" alt="Figma UI Design" class="project-image">
+                        <div class="project-content">
+                            <div class="project-category">UI/UX Design</div>
+                            <h4 class="project-title">Mobile App UI Kit dengan Figma</h4>
+                            <p>Membuat design system dan UI kit lengkap untuk aplikasi mobile menggunakan Figma dengan komponen yang reusable dan konsisten.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Figma</span>
+                                <span class="tech-tag">Design System</span>
+                                <span class="tech-tag">Component Library</span>
+                                <span class="tech-tag">Auto Layout</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="bi bi-box-arrow-up-right"></i> View Prototype
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="bi bi-figma"></i> Figma File
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Keahlian</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Teknologi dan tools yang saya kuasai</p>
+            
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-up">
+                    <div class="skill-category">
+                        <h4 class="skill-category-title">
+                            <i class="bi bi-code-slash"></i>
+                            Frontend Development
+                        </h4>
+                        
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>HTML5 & CSS3</span>
+                            </div>
+                            <p>Mampu membuat struktur halaman web yang semantik dan styling yang responsif dengan CSS modern.</p>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Bootstrap 5</span>
+                            </div>
+                            <p>Menggunakan framework Bootstrap untuk mempercepat pengembangan website responsif.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="skill-category">
+                        <h4 class="skill-category-title">
+                            <i class="bi bi-server"></i>
+                            Backend & Database
+                        </h4>
+                        
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>PHP (Basic)</span>
+                            </div>
+                            <p>Memahami dasar-dasar PHP untuk pengembangan web dinamis dan interaksi dengan database.</p>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Python (Basic)</span>
+                            </div>
+                            <p>Menguasai dasar-dasar Python untuk scripting dan pemahaman konsep pemrograman.</p>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>MySQL</span>
+                            </div>
+                            <p>Memahami query dasar dan manajemen database relasional untuk aplikasi web.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up">
+                    <div class="skill-category">
+                        <h4 class="skill-category-title">
+                            <i class="bi bi-tools"></i>
+                            Tools & Software
+                        </h4>
+                        
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Visual Studio Code</span>
+                            </div>
+                            <p>Menggunakan VS Code sebagai primary code editor dengan berbagai extensions untuk produktivitas.</p>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Git & GitHub</span>
+                            </div>
+                            <p>Menggunakan Git untuk version control dan GitHub untuk kolaborasi project.</p>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Figma</span>
+                            </div>
+                            <p>Mendesain UI/UX dan prototype menggunakan Figma untuk web dan mobile applications.</p>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Affinity Designer/Photo</span>
+                            </div>
+                            <p>Menggunakan Affinity Suite untuk graphic design, photo editing, dan pembuatan assets visual.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="skill-category">
+                        <h4 class="skill-category-title">
+                            <i class="bi bi-people-fill"></i>
+                            Soft Skills
+                        </h4>
+                        
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Team Collaboration</span>
+                            </div>
+                            <p>Berkolaborasi efektif dalam tim, baik dalam proyek sekolah maupun magang.</p>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Problem Solving</span>
+                            </div>
+                            <p>Analisis dan penyelesaian masalah teknis dengan pendekatan logis dan sistematis.</p>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Communication</span>
+                            </div>
+                            <p>Komunikasi efektif baik secara lisan maupun tulisan dalam konteks teknis dan non-teknis.</p>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Time Management</span>
+                            </div>
+                            <p>Mengelola waktu dan prioritas tugas dengan baik untuk memenuhi deadline.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Kontak</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Mari terhubung dan berdiskusi</p>
+            
+            <div class="row">
+                <div class="col-lg-5" data-aos="fade-right">
+                    <div class="contact-info">
+                        <h4 class="mb-4">Informasi Kontak</h4>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="bi bi-envelope-fill"></i>
+                            </div>
+                            <div>
+                                <h6>Email</h6>
+                                <p>akbar60305@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="bi bi-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h6>WhatsApp</h6>
+                                <p>+62 852-1716-1933</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="bi bi-geo-alt-fill"></i>
+                            </div>
+                            <div>
+                                <h6>Lokasi</h6>
+                                <p>Medan, Sumatera Utara, Indonesia</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="bi bi-clock-fill"></i>
+                            </div>
+                            <div>
+                                <h6>Jam Tersedia</h6>
+                                <p>Senin - Jumat: 16:00 - 21:00<br>Sabtu - Minggu: 09:00 - 17:00</p>
+                            </div>
+                        </div>
+                        
+                        <h5 class="mt-4 mb-3">Ikuti Saya</h5>
+                        <div class="social-links">
+                            <a href="https://github.com/abay-madan" class="social-link" target="_blank">
+                                <i class="bi bi-github"></i>
+                            </a>
+                            <a href="akbar60305@gmail.com" class="social-link" target="_blank">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+                            <a href="https://www.instagram.com/abayyyyyyyyy___?igsh=MTRuYmMwbXJtcXAxYg==" class="social-link" target="_blank">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <a href="#" class="btn-primary-custom d-block text-center" download>
+                                <i class="bi bi-download"></i> Download CV
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="contact-form">
+                        <h4 class="mb-4">Kirim Pesan</h4>
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nama Lengkap *</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email *</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Subject *</label>
+                                <select class="form-control" id="subject" required>
+                                    <option value="">Pilih Subject</option>
+                                    <option value="project">Konsultasi Project</option>
+                                    <option value="collaboration">Kolaborasi</option>
+                                    <option value="learning">Diskusi Pembelajaran</option>
+                                    <option value="other">Lainnya</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Pesan *</label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                                <small class="text-muted">
+                                    <span id="charCount">0</span>/500 karakter
+                                </small>
+                            </div>
+                            
+                            <button type="submit" class="btn-submit">
+                                <i class="bi bi-send-fill"></i> Kirim Pesan
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-12" data-aos="fade-up">
+                    <div class="contact-info">
+                        <h4 class="mb-4 text-center">FAQ - Pertanyaan yang Sering Ditanyakan</h4>
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <h6><i class="bi bi-check-circle-fill text-primary me-2"></i>Apakah tersedia untuk project freelance?</h6>
+                                <p>Ya, saya terbuka untuk project freelance kecil-kecilan di luar jam sekolah. Silakan hubungi untuk diskusi detail dan timeline.</p>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h6><i class="bi bi-check-circle-fill text-primary me-2"></i>Berapa lama response time?</h6>
+                                <p>Saya biasanya merespon dalam 24 jam. Untuk urusan mendesak, silakan gunakan WhatsApp untuk komunikasi yang lebih cepat.</p>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h6><i class="bi bi-check-circle-fill text-primary me-2"></i>Apakah menerima mentorship atau bimbingan?</h6>
+                                <p>Ya, saya terbuka untuk diskusi dan saling berbagi pengetahuan dengan sesama pelajar atau pemula di bidang teknologi.</p>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h6><i class="bi bi-check-circle-fill text-primary me-2"></i>Teknologi apa yang sedang dipelajari saat ini?</h6>
+                                <p>Saat ini sedang mendalami React.js untuk frontend dan Node.js untuk backend, serta memperdalam konsep database yang lebih kompleks.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#home" class="footer-link">Tentang</a>
+                <a href="#education" class="footer-link">Pendidikan</a>
+                <a href="#experience" class="footer-link">Pengalaman</a>
+                <a href="#projects" class="footer-link">Project</a>
+                <a href="#skills" class="footer-link">Keahlian</a>
+                <a href="#contact" class="footer-link">Kontak</a>
+            </div>
+            
+            <div class="text-center mt-4">
+                <p>&copy; 2024 Akbar Ramadhan. All Rights Reserved.</p>
+                <p class="mt-2">
+                    <small>Last Updated: January 2024 | <a href="#" class="footer-link">Privacy Policy</a> | <a href="#" class="footer-link">Sitemap</a></small>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="bi bi-arrow-up"></i>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Close mobile menu if open
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        navbarCollapse.classList.remove('show');
+                    }
+                }
+            });
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Character counter for contact form
+        const messageTextarea = document.getElementById('message');
+        const charCount = document.getElementById('charCount');
+
+        if (messageTextarea && charCount) {
+            messageTextarea.addEventListener('input', function() {
+                const count = this.value.length;
+                charCount.textContent = count;
+                
+                if (count > 500) {
+                    charCount.style.color = 'red';
+                } else {
+                    charCount.style.color = 'inherit';
+                }
+            });
+        }
+
+        // Contact form submission
+        const contactForm = document.getElementById('contactForm');
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                
+                // Simple validation
+                if (name && email && subject && message) {
+                    // Here you would normally send the data to a server
+                    alert('Terima kasih! Pesan Anda telah dikirim. Saya akan merespon secepatnya.');
+                    contactForm.reset();
+                    charCount.textContent = '0';
+                } else {
+                    alert('Mohon lengkapi semua field yang required.');
+                }
+            });
+        }
+
+        // Add fadeIn animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            section {
+                opacity: 0;
+                transform: translateY(20px);
+                animation: fadeIn 0.6s ease-out forwards;
+            }
+            
+            section:nth-child(1) { animation-delay: 0.2s; }
+            section:nth-child(2) { animation-delay: 0.4s; }
+            section:nth-child(3) { animation-delay: 0.6s; }
+            section:nth-child(4) { animation-delay: 0.8s; }
+            section:nth-child(5) { animation-delay: 1.0s; }
+            section:nth-child(6) { animation-delay: 1.2s; }
+        `;
+        document.head.appendChild(style);
+
+        // Typing effect for hero subtitle
+        const heroSubtitle = document.querySelector('.typing-animation');
+        if (heroSubtitle) {
+            const text = heroSubtitle.textContent;
+            heroSubtitle.textContent = '';
+            let i = 0;
+            
+            function typeWriter() {
+                if (i < text.length) {
+                    heroSubtitle.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                } else {
+                    setTimeout(() => {
+                        heroSubtitle.textContent = '';
+                        i = 0;
+                        setTimeout(typeWriter, 500);
+                    }, 3000);
+                }
+            }
+            
+            // Start typing effect after page loads
+            setTimeout(typeWriter, 1000);
+        }
+
+        // Lazy load images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src || img.src;
+                        img.classList.add('loaded');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img').forEach(img => {
+                if (!img.src.includes('data:image')) {
+                    imageObserver.observe(img);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
