@@ -89,6 +89,22 @@
             transition: all 0.3s ease;
             transform: translateX(-50%);
         }
+
+        /* TAMBAHKAN di bagian Navbar styling (sekitar line 60-100) */
+        .navbar-toggler {
+            border: 2px solid var(--primary-color);
+            padding: 8px 12px;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.25);
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 212, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            width: 24px;
+            height: 24px;
+        }
         
         .nav-link:hover::after,
         .nav-link.active::after {
@@ -649,26 +665,31 @@
             transform: translateY(-5px);
         }
         
-        /* Typing Animation */
+        /* .typing-animation */
         .typing-animation {
             display: inline-block;
-            white-space: nowrap;
             overflow: hidden;
             border-right: 2px solid var(--primary-color);
-            width: 0;
-            animation: typing 6s steps(32,end) infinite,
-                     blink 0.7s infinite;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: 
+                typing 3.5s steps(40, end),
+                blink-caret .75s step-end infinite;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
         }
-        
+
+        /* keyframes */
         @keyframes typing {
-            0% { width: 0; }
-            40% { width: 45ch; }
-            80% { width: 45ch; }
-            100% { width: 0; }
+            0% { width: 0 }
+            50% { width: 100% }
+            80% { width: 100% }
+            100% { width: 0 }
         }
-        
-        @keyframes blink {
-            50% { border-color: transparent; }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary-color) }
         }
         
         /* Mobile Responsive */
@@ -692,10 +713,22 @@
                 border-color: transparent var(--bg-card) transparent transparent !important;
             }
         }
-        
+
         @media (max-width: 768px) {
+            /* PERBAIKAN: Tambahkan padding untuk body dan hero section */
+            body {
+                padding-top: 70px; /* Mencegah navbar menutupi konten */
+            }
+            
+            .hero-section {
+                min-height: calc(100vh - 70px); /* Adjust height untuk mobile */
+                padding-top: 40px; /* Tambahkan padding top */
+            }
+            
             .hero-title {
                 font-size: 2.5rem;
+                margin-top: 20px; /* Tambahkan margin top */
+                padding-top: 10px; /* Extra padding untuk aman */
             }
             
             .hero-subtitle {
@@ -706,6 +739,7 @@
                 width: 200px;
                 height: 200px;
                 margin-bottom: calc(var(--spacing-unit) * 4);
+                margin-top: 20px; /* Tambahkan margin top untuk gambar */
             }
             
             .section-title {
@@ -717,15 +751,115 @@
                 width: 100%;
                 margin-bottom: calc(var(--spacing-unit) * 2);
             }
+            
+            /* PERBAIKAN: Pastikan navbar tidak menutupi konten saat menu terbuka */
+            .navbar-collapse {
+                background: rgba(18, 18, 18, 0.95);
+                backdrop-filter: blur(10px);
+                padding: 20px;
+                border-radius: 10px;
+                margin-top: 10px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            }
         }
-        
+
         @media (max-width: 576px) {
             section {
                 padding: calc(var(--spacing-unit) * 6) 0;
+                /* PERBAIKAN: Tambahkan scroll margin untuk anchor links */
+                scroll-margin-top: 80px;
             }
             
             .hero-section {
                 padding: calc(var(--spacing-unit) * 6) 0;
+                scroll-margin-top: 0; /* Untuk hero section khusus */
+            }
+            
+            /* PERBAIKAN: Adjust untuk layar sangat kecil */
+            .hero-title {
+                font-size: 2rem;
+                line-height: 1.2;
+                margin-top: 15px;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+                line-height: 1.4;
+            }
+            
+            .hero-image {
+                width: 180px;
+                height: 180px;
+            }
+        }
+
+        /* TAMBAHKAN DI SINI - Media query untuk 480px */
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.8rem;
+                line-height: 1.1;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.95rem;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+            }
+            
+            .btn-primary-custom,
+            .btn-secondary-custom {
+                padding: calc(var(--spacing-unit) * 1.2) calc(var(--spacing-unit) * 2.5);
+                min-width: 130px;
+                font-size: 0.85rem;
+            }
+            
+            .hero-image {
+                width: 150px;
+                height: 150px;
+                border-width: 4px;
+            }
+            
+            .about-content {
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+            
+            .timeline-content {
+                padding: calc(var(--spacing-unit) * 3);
+            }
+            
+            .project-card {
+                margin-bottom: calc(var(--spacing-unit) * 3);
+            }
+        }
+
+        /* PERBAIKAN TAMBAHAN: Untuk perangkat dengan height kecil */
+        @media (max-height: 700px) and (max-width: 768px) {
+            .hero-section {
+                min-height: auto;
+                padding: 80px 0 40px 0;
+            }
+            
+            .hero-title {
+                margin-top: 10px;
+                font-size: 2rem;
+            }
+            
+            .hero-image {
+                width: 150px;
+                height: 150px;
+                margin: 20px auto;
+            }
+        }
+
+        /* PERBAIKAN: Untuk iPhone dan perangkat dengan notch */
+        @supports (padding: max(0px)) {
+            @media (max-width: 768px) {
+                .hero-section {
+                    padding-top: max(40px, env(safe-area-inset-top));
+                }
             }
         }
     </style>
@@ -770,7 +904,9 @@
                 <div class="col-lg-6" data-aos="fade-right">
                     <div class="hero-content">
                         <h1 class="hero-title">Halo, saya Akbar Ramadhan</h1>
-                        <p class="hero-subtitle typing-animation">Pelajar di SMK MULTI KARYA | Designer & Programmer</p>
+                        <p class="hero-subtitle">
+                            <span class="typing-animation">Pelajar di SMK MULTI KARYA | Designer & Programmer</span>
+                        </p>
                         <p class="mb-4">Saya adalah siswa SMK yang bersemangat dalam dunia teknologi, khususnya pengembangan web dan desain. Saya percaya bahwa dengan kombinasi kreativitas dan logika pemrograman, kita dapat menciptakan solusi digital yang inovatif dan bermanfaat.</p>
                         <div class="d-flex gap-3 flex-wrap">
                             <a href="#projects" class="btn-primary-custom">Lihat Project</a>
@@ -820,11 +956,6 @@
                             <li>UI/UX Design</li>
                             <li>Algoritma dan Struktur Data</li>
                         </ul>
-                        <p><strong>Kegiatan Ekstrakurikuler:</strong></li>
-                            <li>Anggota Klub IT Sekolah</li>
-                            <li>Peserta Workshop Web Development</li>
-                            <li>Peserta Lomba Coding Tingkat Sekolah</li>
-                        </ul>
                         <div class="tech-stack mt-3">
                             <span class="tech-tag">HTML/CSS</span>
                             <span class="tech-tag">PHP</span>
@@ -857,7 +988,7 @@
                         <i class="bi bi-laptop-fill"></i>
                     </div>
                     <div class="timeline-content">
-                        <div class="timeline-date">2023 - Sekarang</div>
+                        <div class="timeline-date">2024 - Sekarang</div>
                         <h4 class="timeline-title">Belajar Mandiri & Online Course</h4>
                         <p class="timeline-subtitle">Pengembangan Skill Teknis</p>
                         <p><strong>Platform yang digunakan:</strong> YouTube dan Dokumentasi Resmi</p>
@@ -934,7 +1065,7 @@
                         <i class="bi bi-kanban-fill"></i>
                     </div>
                     <div class="timeline-content">
-                        <div class="timeline-date">2023 - Sekarang</div>
+                        <div class="timeline-date">2024 - Sekarang</div>
                         <h4 class="timeline-title">Proyek Sekolah & Personal</h4>
                         <p class="timeline-subtitle">Freelance & Self-Learning Projects</p>
                         
@@ -1344,10 +1475,11 @@
             </div>
             
             <div class="text-center mt-4">
-                <p>&copy; 2024 Akbar Ramadhan. All Rights Reserved.</p>
-                <p class="mt-2">
-                    <small>Last Updated: January 2024 | <a href="#" class="footer-link">Privacy Policy</a> | <a href="#" class="footer-link">Sitemap</a></small>
-                </p>
+                <!-- footer -->
+            <p>&copy; 2026 Akbar Ramadhan. All Rights Reserved.</p>
+            <p class="mt-2">
+                <small>Last Updated: January 2026 | <a href="#" class="footer-link">Privacy Policy</a> | <a href="#" class="footer-link">Sitemap</a></small>
+            </p>
             </div>
         </div>
     </footer>
@@ -1511,31 +1643,6 @@
             section:nth-child(6) { animation-delay: 1.2s; }
         `;
         document.head.appendChild(style);
-
-        // Typing effect for hero subtitle
-        const heroSubtitle = document.querySelector('.typing-animation');
-        if (heroSubtitle) {
-            const text = heroSubtitle.textContent;
-            heroSubtitle.textContent = '';
-            let i = 0;
-            
-            function typeWriter() {
-                if (i < text.length) {
-                    heroSubtitle.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, 50);
-                } else {
-                    setTimeout(() => {
-                        heroSubtitle.textContent = '';
-                        i = 0;
-                        setTimeout(typeWriter, 500);
-                    }, 3000);
-                }
-            }
-            
-            // Start typing effect after page loads
-            setTimeout(typeWriter, 1000);
-        }
 
         // Lazy load images
         if ('IntersectionObserver' in window) {
